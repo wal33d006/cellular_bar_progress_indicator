@@ -40,7 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
               'Cellular bar progress indicator',
               style: Theme.of(context).textTheme.title,
             ),
-            ProgressIndicators(
+            BarProgressIndicator(
               numberOfBars: 4,
               color: Colors.grey,
               fontSize: 10.0,
@@ -56,7 +56,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-class ProgressIndicators extends StatefulWidget {
+class BarProgressIndicator extends StatefulWidget {
   final int numberOfBars;
   final double fontSize;
   final double barSpacing;
@@ -65,7 +65,7 @@ class ProgressIndicators extends StatefulWidget {
   final double beginTweenValue;
   final double endTweenValue;
 
-  ProgressIndicators({
+  BarProgressIndicator({
     this.numberOfBars = 3,
     this.fontSize = 10.0,
     this.color = Colors.black,
@@ -75,7 +75,7 @@ class ProgressIndicators extends StatefulWidget {
     this.endTweenValue = 10.0,
   });
 
-  _ProgressIndicatorsState createState() => _ProgressIndicatorsState(
+  _BarProgressIndicatorState createState() => _BarProgressIndicatorState(
         numberOfBars: this.numberOfBars,
         fontSize: this.fontSize,
         color: this.color,
@@ -86,7 +86,7 @@ class ProgressIndicators extends StatefulWidget {
       );
 }
 
-class _ProgressIndicatorsState extends State<ProgressIndicators>
+class _BarProgressIndicatorState extends State<BarProgressIndicator>
     with TickerProviderStateMixin {
   int numberOfBars;
   int milliseconds;
@@ -99,7 +99,7 @@ class _ProgressIndicatorsState extends State<ProgressIndicators>
   List<Animation<double>> animations = new List<Animation<double>>();
   List<Widget> _widgets = new List<Widget>();
 
-  _ProgressIndicatorsState({
+  _BarProgressIndicatorState({
     this.numberOfBars,
     this.fontSize,
     this.color,
